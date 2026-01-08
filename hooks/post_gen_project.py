@@ -1,8 +1,8 @@
 import os
 
 paths = [
-    "src/contexts/{{cookiecutter.context_name}}/domain/entities",
-    "src/contexts/{{cookiecutter.context_name}}/application/usecases",
+    "{{cookiecutter.project_slug}}/{{cookiecutter.context_name}}/domain/entities",
+    "{{cookiecutter.project_slug}}/{{cookiecutter.context_name}}/application/usecases",
 ]
 
 for path in paths:

@@ -5,7 +5,7 @@
 Este projeto é organizado em bounded contexts. Cada context deve estar isolado e seguir a seguinte estrutura de diretórios e responsabilidades:
 
 ```
-src/contexts/{context_name}/
+base_dir/context_name/
 ├── infra/                      # Implementações concretas e adapters
 │   ├── mappers/                # Conversão entre camadas
 │   │   ├── {entity}_mapper.py
@@ -631,7 +631,7 @@ Cada bounded context deve ter um `README.md` descrevendo:
 Aqui um exemplo de um bounded context completo seguindo essas guidelines:
 
 ```
-src/contexts/user_management/
+base_dir/context_name/
 ├── infra/
 │   ├── repositories/
 │   │   ├── tortoise_user_repository.py
