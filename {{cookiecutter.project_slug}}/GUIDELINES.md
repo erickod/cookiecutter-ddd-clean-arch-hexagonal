@@ -64,9 +64,6 @@ base_dir/app/context_name/      # base_dir é o diretório criado pelo git clone
 │   │   ├── {entity}_repository.py
 │   │   ├── {service}_service.py
 │   │   └── __init__.py
-│   ├── exceptions/             # Exceções de negócio específicas
-│   │   ├── {entity}_exceptions.py
-│   │   └── __init__.py
 │   └── __init__.py
 │
 ├── application/                # Casos de uso e orquestração
@@ -697,9 +694,6 @@ base_dir/app/context_name/
 │   ├── dtos/
 │   │   ├── user_input.py
 │   │   ├── user_output.py
-│   │   └── __init__.py
-│   ├── exceptions/
-│   │   ├── user_exceptions.py
 │   │   └── __init__.py
 │   ├── tests/
 │   │   ├── unit/
