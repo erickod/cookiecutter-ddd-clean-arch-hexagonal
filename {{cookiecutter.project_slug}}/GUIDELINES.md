@@ -80,9 +80,6 @@ base_dir/app/context_name/      # base_dir é o diretório criado pelo git clone
 │   │   ├── {entity}_input.py
 │   │   ├── {entity}_output.py
 │   │   └── __init__.py
-│   ├── protocols/              # Interfaces esperadas (contracts)
-│   │   ├── {dependency}.py
-│   │   └── __init__.py
 │   ├── exceptions/             # Exceções da application (não reaplicáveis)
 │   │   ├── {entity}_exceptions.py
 │   │   └── __init__.py
