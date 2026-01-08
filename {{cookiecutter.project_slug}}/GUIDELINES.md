@@ -698,9 +698,6 @@ base_dir/app/context_name/
 │   │   ├── user_input.py
 │   │   ├── user_output.py
 │   │   └── __init__.py
-│   ├── protocols/
-│   │   ├── email_service.py
-│   │   └── __init__.py
 │   ├── exceptions/
 │   │   ├── user_exceptions.py
 │   │   └── __init__.py
