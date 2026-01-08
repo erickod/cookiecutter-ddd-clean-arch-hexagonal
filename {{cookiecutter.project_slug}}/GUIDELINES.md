@@ -76,10 +76,6 @@ base_dir/context_name/
 │   ├── event_handlers/         # Handlers que reagem a eventos de domínio
 │   │   ├── {event}_handler.py
 │   │   └── __init__.py
-│   ├── dtos/                   # Data Transfer Objects
-│   │   ├── {entity}_input.py
-│   │   ├── {entity}_output.py
-│   │   └── __init__.py
 │   ├── protocols/              # Interfaces esperadas (contracts)
 │   │   ├── {dependency}.py
 │   │   └── __init__.py
@@ -386,6 +382,13 @@ async def get_user(user_id: str, *, repository: UserRepositoryProtocol) -> User:
 
 Use dataclasses para DTOs:
 
+Os DTOs devem ser definidos como dataclasses no mesmo arquivo do UseCase  que os utiliza. Isso garante que o contrato de entrada e saída esteja sempre visível junto com a lógica de orquestração.
+
+Regras:
+  - Defina-os no topo do arquivo, antes da classe/função do UseCase.
+  - Use o sufixo Input para dados de entrada e Output para dados de saída.
+  - Cada UseCase deve ter seus próprios DTOs (evite reutilizar DTOs entre UseCases diferentes para manter o desacoplamento).
+
 ```python
 from dataclasses import dataclass
 from datetime import datetime
@@ -403,6 +406,8 @@ class UserOutput:
     name: str
     email: str
     created_at: datetime
+    
+class SomeUsecase:...
 ```
 
 **Boas práticas:**
@@ -615,6 +620,7 @@ Cada bounded context deve ter um `README.md` descrevendo:
 - Publique eventos de domínio para comunicação entre aggregates
 - Documente decisões arquiteturais com ADRs (Architecture Decision Records)
 - Valide entrada na borda (HTTP schemas, CLI)
+- O Uso de uma única linha em branco para separar as fases de um teste (Arrange, Act, Assert) é permitido.
 
 ### ❌ Evite
 - Lógica de negócio na camada infra
@@ -623,6 +629,7 @@ Cada bounded context deve ter um `README.md` descrevendo:
 - Acoplamento entre contexts
 - Modificar entidades de domínio sem passar por behaviors
 - Deixar variáveis mágicas sem documentação
+- Evite o uso excessivo de linhas em branco; se uma função precisa de muitos separadores, ela deve ser dividida. 
 
 ---
 
@@ -685,10 +692,6 @@ base_dir/context_name/
 │   │   └── __init__.py
 │   ├── event_handlers/
 │   │   ├── user_created_handler.py
-│   │   └── __init__.py
-│   ├── dtos/
-│   │   ├── user_input.py
-│   │   ├── user_output.py
 │   │   └── __init__.py
 │   ├── protocols/
 │   │   ├── email_service.py
