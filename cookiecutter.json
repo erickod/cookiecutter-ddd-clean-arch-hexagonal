@@ -1,0 +1,11 @@
+{
+  "project_name": "Python Project",
+  "project_slug": "{{ cookiecutter.project_name | lower | replace(' ', '_') }}",
+  "context_name": "user_management",
+  "author_name": "Your Name",
+  "python_version": "3.11",
+  "use_tortoise": false,
+  "use_sqlalchemy": true,
+  "use_poetry": false,
+  "use_uv": true
+}
