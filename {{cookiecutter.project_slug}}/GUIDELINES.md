@@ -5,7 +5,7 @@
 Este projeto é organizado em bounded contexts. Cada context deve estar isolado e seguir a seguinte estrutura de diretórios e responsabilidades:
 
 ```
-base_dir/context_name/
+base_dir/app/context_name/      # base_dir é o diretório criado pelo git clone
 ├── infra/                      # Implementações concretas e adapters
 │   ├── mappers/                # Conversão entre camadas
 │   │   ├── {entity}_mapper.py
@@ -75,6 +75,10 @@ base_dir/context_name/
 │   │   └── __init__.py
 │   ├── event_handlers/         # Handlers que reagem a eventos de domínio
 │   │   ├── {event}_handler.py
+│   │   └── __init__.py
+│   ├── dtos/                   # Data Transfer Objects
+│   │   ├── {entity}_input.py
+│   │   ├── {entity}_output.py
 │   │   └── __init__.py
 │   ├── protocols/              # Interfaces esperadas (contracts)
 │   │   ├── {dependency}.py
@@ -638,7 +642,7 @@ Cada bounded context deve ter um `README.md` descrevendo:
 Aqui um exemplo de um bounded context completo seguindo essas guidelines:
 
 ```
-base_dir/context_name/
+base_dir/app/context_name/
 ├── infra/
 │   ├── repositories/
 │   │   ├── tortoise_user_repository.py
@@ -692,6 +696,10 @@ base_dir/context_name/
 │   │   └── __init__.py
 │   ├── event_handlers/
 │   │   ├── user_created_handler.py
+│   │   └── __init__.py
+│   ├── dtos/
+│   │   ├── user_input.py
+│   │   ├── user_output.py
 │   │   └── __init__.py
 │   ├── protocols/
 │   │   ├── email_service.py
